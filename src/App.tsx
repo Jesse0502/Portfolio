@@ -1,34 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Box, Center, Image, Text } from "@chakra-ui/react";
+import { useState } from "react";
+import PFP from "./assets/pfp.jpg";
+import "./index.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <>
+      <Center
+        className="root"
+        bg="#212324"
+        justifyContent={"space-around"}
+        alignItems="center"
+        flexDir={"column-reverse"}
+        color="white"
+      >
+        <Box textAlign={"center"}>
+          <Text fontSize="md" letterSpacing="widest">
+            FULL STACK DEVELOPER
+          </Text>
+          <Text
+            fontSize="3xl"
+            w="80vh"
+            fontWeight={"bold"}
+            mt="10"
+            letterSpacing="wider"
+          >
+            Building seamless solutions from front-end to back-end, one line of
+            code at a time.
+          </Text>
+        </Box>
+        <Image borderRadius={"200vh"} mt="20" mb="5" height="50vh" src={PFP} />
+      </Center>
+    </>
+  );
 }
 
-export default App
+export default App;
