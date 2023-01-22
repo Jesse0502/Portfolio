@@ -6,8 +6,10 @@ import {
   Button,
   Text,
   Heading,
+  Textarea,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { themeColor } from "./constants";
 
 const ContactMe = () => {
   const [email, setEmail] = useState("");
@@ -17,13 +19,14 @@ const ContactMe = () => {
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     // send email or store the message
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Message:", message);
+    // console.log("Name:", name);
+    // console.log("Email:", email);
+    // console.log("Message:", message);
+    console.log(import.meta.env.VITE_FIREBASE_API_KEY);
   };
 
   return (
-    <Box p={5} id="contact">
+    <Box px={5} py="20" id="contact">
       <Heading as="h2" size="lg" mb={5}>
         Contact Me
       </Heading>
@@ -31,6 +34,7 @@ const ContactMe = () => {
         <FormControl>
           <FormLabel htmlFor="name">Name</FormLabel>
           <Input
+            isRequired
             id="name"
             type="text"
             value={name}
@@ -45,27 +49,31 @@ const ContactMe = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            isRequired
             placeholder="Enter your email"
           />
         </FormControl>
         <FormControl mt={4}>
           <FormLabel htmlFor="message">Message</FormLabel>
-          <Input
+          <Textarea
             id="message"
-            type="textarea"
+            isRequired
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Enter your message"
           />
         </FormControl>
-        <Button mt={4} type="submit">
+        <Button
+          mt={4}
+          type="submit"
+          color="white"
+          bg={themeColor}
+          _hover={{}}
+          _active={{}}
+        >
           Submit
         </Button>
       </form>
-      <Text mt={5}>
-        Note: This is just an example form, the submit button is not connected
-        to any server-side logic.
-      </Text>
     </Box>
   );
 };
