@@ -22,7 +22,12 @@ const ContactMe = () => {
     // console.log("Name:", name);
     // console.log("Email:", email);
     // console.log("Message:", message);
-    console.log(import.meta.env.VITE_FIREBASE_API_KEY);
+    // console.log(import.meta.env.VITE_FIREBASE_AUTH_DOMAIN);
+    fetch(import.meta.env.VITE_SERVER_API + "/extras/portfolio-contact", {
+      method: "POST",
+      body: JSON.stringify({ name, email, message }),
+      headers: new Headers({ "content-type": "application/json" }),
+    });
   };
 
   return (
