@@ -7,6 +7,7 @@ import {
   Text,
   Heading,
   Textarea,
+  useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { themeColor } from "./constants";
@@ -15,19 +16,44 @@ const ContactMe = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const toast = useToast();
+
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    // send email or store the message
-    // console.log("Name:", name);
-    // console.log("Email:", email);
-    // console.log("Message:", message);
-    // console.log(import.meta.env.VITE_FIREBASE_AUTH_DOMAIN);
-    fetch(import.meta.env.VITE_SERVER_API + "/extras/portfolio-contact", {
-      method: "POST",
-      body: JSON.stringify({ name, email, message }),
-      headers: new Headers({ "content-type": "application/json" }),
-    });
+    setLoading(true);
+    const response = await fetch(
+      import.meta.env.VITE_SERVER_API + "/extras/portfolio-contact",
+      {
+        method: "POST",
+        body: JSON.stringify({ name, email, message }),
+        headers: new Headers({ "content-type": "application/json" }),
+      }
+    );
+
+    if (response.status === 200) {
+      toast({
+        title: "Thanks for reaching out!",
+        description:
+          "I will get back to you on your email as soon as possible :)",
+        variant: "solid",
+        position: "bottom-right",
+        status: "success",
+      });
+      setName("");
+      setEmail("");
+      setMessage("");
+    } else {
+      toast({
+        title: "Please try again later!",
+        description: "Some unexpected error occured!",
+        variant: "solid",
+        position: "bottom-right",
+        status: "error",
+      });
+    }
+    setLoading(false);
   };
 
   return (
@@ -71,6 +97,7 @@ const ContactMe = () => {
         <Button
           mt={4}
           type="submit"
+          isLoading={loading}
           color="white"
           bg={themeColor}
           _hover={{}}

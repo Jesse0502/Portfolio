@@ -28,7 +28,7 @@ const Projects = () => {
       <Heading as="h2" size="lg" mb={5}>
         Projects
       </Heading>
-      <Flex wrap="wrap" justify={"space-around"}>
+      <Flex wrap="wrap" w="full" justify={"space-around"}>
         {[
           {
             link: "https://www.strikeapp.co/",
@@ -191,7 +191,7 @@ const Card = ({
           </Center>
         </Flex>
       </Box>
-      <Box p={5} w="96">
+      <Box p={5} w={["full", "96", "96"]}>
         <Heading as="h3" w="full" size="md" mb={3}>
           <Link href={project.link} isExternal>
             {project.title}

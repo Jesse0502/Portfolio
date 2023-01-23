@@ -52,6 +52,7 @@ function App() {
         <Image
           borderRadius={"full"}
           src={PFP}
+          mt={["10", 0]}
           width="72"
           height="72"
           alt="avatar bigheads"
@@ -67,7 +68,7 @@ function App() {
 
           <Heading
             fontSize={["3xl", "4xl"]}
-            w="60%"
+            w={["90%", "60%"]}
             py=""
             m="auto"
             fontWeight="700"
