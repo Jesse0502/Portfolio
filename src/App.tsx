@@ -53,8 +53,8 @@ function App() {
           borderRadius={"full"}
           src={PFP}
           mt={["10", 0]}
-          width="72"
-          height="72"
+          width={["52", "72"]}
+          height={["52", "72"]}
           alt="avatar bigheads"
           placeholder="blur"
         />

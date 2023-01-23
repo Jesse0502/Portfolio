@@ -34,7 +34,7 @@ const Projects = () => {
             link: "https://www.strikeapp.co/",
             images: [Strike1, Strike2, Strike3, Strike4],
             description:
-              "I was part of a development team that created a full-stack web application using Nest.js and React.js. My role focused on the front-end and back-end development, utilizing Nest.js for the server-side and React.js for the client-side. The project was a success, delivering a functional and user-friendly web application that met the client's needs.",
+              "I was part of a development team that created a full-stack web application for video conferencing similar to Zoom. We utilized Nest.js for the server-side and React.js for the client-side. My role focused on both front-end and back-end development. We delivered a functional and user-friendly web application that met the client's needs and the project was a success.",
             title: "Strikeapp.co",
           },
           {

@@ -24,7 +24,7 @@ export default function Skills() {
   ];
   const [skillValues, setSkillValues] = useState(skills);
   let timeoutId: any = null;
-  const timeout = 10;
+  const timeout = 5;
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
