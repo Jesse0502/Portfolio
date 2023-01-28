@@ -19,7 +19,7 @@ export default function Skills() {
     { name: "React.js", progress: 85, start: 0 },
     { name: "Node.js", progress: 85, start: 0 },
     { name: "Python", progress: 85, start: 0 },
-    { name: "Django", progress: 70, start: 0 },
+    { name: "Flask", progress: 75, start: 0 },
     { name: "SQL", progress: 70, start: 0 },
   ];
   const [skillValues, setSkillValues] = useState(skills);
